@@ -6,7 +6,7 @@ Autor: Alejandro Bolaños Chinchilla
 Carrera: Ingeniería en Tecnologías de la Información y Comunicación
 Universidad: Universidad Técnica Nacional
 Modalidad: Teórico – práctico | Grupo 1
-Docente: Andrés Jiménez
+Docente: Andrés Joseph Jiménez Leandro 
 
 --------------------------------------------------------------
 ✅ REQUISITOS PREVIOS
@@ -63,13 +63,14 @@ DB_PASSWORD=1234
 
 Funcionalidad                    | Comando
 ---------------------------------|-----------------------------------------
-Scraping Estático                | python scraper/scraper_static.py
-Scraping Dinámico                | python scraper/scraper_dynamic.py
-API REST (JSON)                  | python api/json_api_server.py
-La API se ejecuta en:            | http://127.0.0.1:5000/api/productos
-Dashboard Web                    | Abrir "frontend/index.html" en el navegador
-Scheduler Automático (30 min)    | python scheduler.py
-Selectores con LLM (IA)          | python llm/llm_selector.py
+Scraping Estático               | python scraper/scraper_static.py
+Scraping Dinámico               | python scraper/scraper_dynamic.py
+API REST Flask                  | python api/json_api_server.py
+La API se ejecuta en:           | http://127.0.0.1:5000/api/productos
+Dashboard Web                   | Ir a la carperta frontend y ejecutar el index.html con open live server
+Generar Backup                  | python utils\backup_db.py
+Generar Selectores con LLM (IA) | python llm/llm_selector.py
+Scheduler (cada 30 min)         | python scheduler.py
 
 --------------------------------------------------------------
 📁 ESTRUCTURA DEL PROYECTO
