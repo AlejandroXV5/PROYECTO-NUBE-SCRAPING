@@ -101,7 +101,7 @@ Scraping Estático               | python scraper/scraper_static.py
 Scraping Dinámico               | python scraper/scraper_dynamic.py
 API REST Flask                  | python api/json_api_server.py
 La API se ejecuta en:           | http://127.0.0.1:5000/api/productos
-Dashboard Web                   | Ir a la carperta frontend y ejecutar el index.html con open live server
+Dashboard Web                   | Ir a la carperta frontend, ejecutar el index.html con open live server y la API tiene que estar funcionando
 Generar Backup                  | python utils\backup_db.py
 Generar Selectores con LLM (IA) | python llm/llm_selector.py
 Scheduler (cada 30 min)         | python scheduler.py
