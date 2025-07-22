@@ -213,7 +213,7 @@ def exportar_archivos():
 def exportar_eventos():
     eventos = [
         {
-            "title": "Scraping dinámico ejecutado",
+            "title": "Scraping dinámico",
             "start": datetime.now().strftime("%Y-%m-%dT%H:%M:%S"),
             "description": "Actualización automática de productos (dynamic)"
         }

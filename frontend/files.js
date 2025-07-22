@@ -1,22 +1,27 @@
+// Llamada a la API o al archivo para obtener los archivos descargados
 fetch("http://localhost:5000/api/archivos")
-  .then(res => res.json())
+  .then(res => res.json())  // Asegúrate de que la respuesta sea JSON
   .then(data => {
-    const contenedor = document.getElementById("archivos");
-    contenedor.innerHTML = ""; // Limpia antes de cargar
+    const contenedor = document.getElementById("files-container");
+    contenedor.innerHTML = ""; // Limpiar antes de cargar nuevos archivos
 
     if (!data.length) {
       contenedor.innerHTML = "<p>No hay archivos descargados.</p>";
       return;
     }
 
+    // Crear los elementos de archivos
     data.forEach(item => {
       const div = document.createElement("div");
       div.className = "archivo";
 
       div.innerHTML = `
-        <p><strong>${item.nombre_archivo}</strong></p>
-        <p>Hash: ${item.hash}</p>
-        <p>Fecha: ${item.fecha_descarga}</p>
+        <div class="archivo-item">
+          <p><strong>Nombre del archivo:</strong> ${item.nombre_archivo}</p>
+          <p><strong>Hash:</strong> ${item.hash}</p>
+          <p><strong>Fecha de descarga:</strong> ${new Date(item.fecha_descarga).toLocaleString()}</p>
+        </div>
+        <hr>
       `;
 
       contenedor.appendChild(div);
@@ -24,6 +29,6 @@ fetch("http://localhost:5000/api/archivos")
   })
   .catch(err => {
     console.error("❌ Error cargando archivos:", err);
-    document.getElementById("archivos").innerHTML =
+    document.getElementById("files-container").innerHTML =
       "<p style='color:red'>❌ Error cargando archivos</p>";
   });

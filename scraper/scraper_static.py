@@ -141,7 +141,7 @@ def exportar_a_json():
 def exportar_eventos():
     eventos = [
         {
-            "title": "Scraping estático ejecutado",
+            "title": "Scraping estático",
             "start": datetime.now().strftime("%Y-%m-%dT%H:%M:%S"),
             "description": "Actualización automática de productos (static)"
         }
