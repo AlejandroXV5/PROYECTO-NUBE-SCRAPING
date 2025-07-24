@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 import traceback
 import logging
+
 from apscheduler.schedulers.blocking import BlockingScheduler
 
 # === Importar módulos del proyecto ===
@@ -18,10 +19,8 @@ from scraper.scraper_dynamic import (
 )
 from utils.backup_db import backup_db
 
-# IA Opcional
-# from llm.llm_selector import analizar_productos
-
-import json
+# ✅ Importar IA
+from llm.llm_selector import analizar_productos  # Asegúrate de que esta función exista
 
 # === Configuración del Logger ===
 logging.basicConfig(level=logging.INFO, format="%(asctime)s - %(levelname)s - %(message)s")
@@ -35,7 +34,7 @@ def run_full_execution():
     2. Scraping dinámico
     3. Generación de JSONs
     4. Backup automático de la base de datos
-    5. (Opcional) Análisis con LLM
+    5. Análisis con LLM
     """
     logger.info("=== 🚀 START: Full scraping system execution ===")
 
@@ -62,6 +61,14 @@ def run_full_execution():
         backup_db()
         logger.info("✅ Respaldo de base de datos generado correctamente.")
 
+        # 4️⃣ ANÁLISIS CON LLM
+        try:
+            logger.info("🧠 Ejecutando análisis con LLM...")
+            analizar_productos()
+            logger.info("✅ Análisis con LLM finalizado exitosamente.")
+        except Exception as e:
+            logger.warning("⚠️ Ocurrió un error al ejecutar el análisis con IA.")
+            traceback.print_exc()
 
         logger.info("=== ✅ END: Full scraping system execution ===")
 
