@@ -1,9 +1,11 @@
+# analizar_productos.py
+
 import openai
 import os
 import psycopg2
 from dotenv import load_dotenv
 
-# Cargar las variables de entorno
+# Cargar variables de entorno
 load_dotenv()
 
 # Configurar Azure OpenAI
